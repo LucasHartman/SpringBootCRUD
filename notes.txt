@@ -1,0 +1,70 @@
+-- Spring Boot MVC CRUD Example
+-   Source: https://javatechonline.com/spring-boot-mvc-crud-example/
+-   It will also provide you the knowledge of complete flow of MVC
+    starting from user interface till the data layer.
+-
+
+MVC pattern
+-   Model, View and the Controller.
+-   Is a software design pattern popularly used for developing web applications.
+-   Model:  manages the data, logic and business rules of the application.
+-   View:   representation of information  that an end user can see, such as
+            forms, text boxes, drop-downs, charts, diagrams or tables.
+            excel and pdf reports are also considered as part of the View.
+-   Controller: accepts requests from the user and converts it into commands for
+                the model or view to get the response for the user.
+
+-- Interaction among the three components
+-    Model:     managing data, receives user input from controller
+-   View:       Renders presentation of the model
+-   Controller: Responds to the user input and performs interaction with the data model
+
+
+
+-- CRUD operations
+
+
+------------------------------------------------------------------
+                            Steps
+------------------------------------------------------------------
+
+-- Step 01
+-   Create a Spring Boot starter project
+-   IDE:    Intellij
+-   Dependencies:   Spring Web, Spring Data JPA, MySQL Driver,
+                    Thymeleaf, Lombok, Spring Boot DevTools
+-- Step 02
+-   update application.properties
+-   Datasource details:     DateBase driver class name, Database url,
+                            Database Dialect, ddl-auto, show-sql etc.
+-- Step 03
+-  Create Entity (model) class
+
+-- Step 04
+-   Create Repository Interface
+-   For Database access
+-   extend any Repository Interface provided by Spring Data JPA such as
+    JpaRepository, CrudRepository, PagingAndSortingRepository etc.
+-   for a basic CRUD operation, we don’t need to write any custom method in this interface.
+-   Spring Data JPA will provide all the methods by default
+
+-- Step 05
+-   Create Service Interface & Service Impl classes
+-   Service Layer of the application.
+-   create one Service Interface and its Implementation class.
+-   Annotate: @Service
+-   In order to connect to Data Layer, we need to provide
+    dependency of the Repository interface (created in Step#4)
+    in our service implementation class via auto-wiring.
+
+ -- Step 06
+ -  create a Controller class to handle requests coming from the browser.
+ -  Annotation @Controller
+ -  handler methods to serve the requests for performing various operations involved in CRUD with the help of other layers.
+ -  Controller class will connect to the service layer via auto-wiring of Service Interface.
+
+ -- Step 07
+ -  Create pages for view
+ -  develop user interface part from where a user interacts with the application to perform various operations included in the CRUD
+ -  the controller will connect to service layer to serve the request accordingly.
+
